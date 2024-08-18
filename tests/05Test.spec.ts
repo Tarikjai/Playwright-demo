@@ -1,34 +1,33 @@
+import {test,expect} from '@playwright/test'
 
-import {expect, test} from '@playwright/test'
-
-
-test.beforeEach(async ({page})=> {
+test.beforeEach(async ({page})=>{
     await page.goto('https://practice-automation.com/')
-    
+
 })
 
 
-test.describe('Input Fields', () => {
-    test.beforeEach(async ({page})=> {
-         
+test.describe('Form',() =>{
+    test.beforeEach(async ({page})=>{
         await page.getByText('Form Fields').click()
-         
+    } )
+
+    test('input field',async({page})=>{
+        const usingNameInput = page.getByRole('textbox', {name:"Name"})
+
+        await usingNameInput.fill('Tarik')
+        await usingNameInput.clear()
+        await usingNameInput.pressSequentially('Tarik', {delay:400})
+
+        // Generic Assertion
+        const inputValue = await usingNameInput.inputValue()
+        expect(inputValue).toEqual('Tarik')
+
+        //Locator assertion
+        await expect(usingNameInput).toHaveValue('Tarik')
+
+
     })
 
-    test('Input Field', async({page})=>{
-       const usingTheGridEmailInput =  page.getByRole('textbox', {name:"Name"})
 
-       await usingTheGridEmailInput.fill("test@test.com")
-       await usingTheGridEmailInput.clear()
-       await usingTheGridEmailInput.pressSequentially("test@test.com", {delay:500})
-
-       //generic assertion
-       const inputValue  = await usingTheGridEmailInput.inputValue()
-       expect(inputValue).toEqual("test@test.com")
-
-       //Locator assertion
-
-       await expect(usingTheGridEmailInput).toHaveValue('test@test.com')
-    })
 
 })
