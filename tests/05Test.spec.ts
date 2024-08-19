@@ -43,14 +43,21 @@ test.describe('Form',() =>{
             expect(await box.isChecked()).toBeTruthy()
         }
     })
-    test('Static Dropdowns', async({page})=> {
-        const DropdownsMenu =  page.locator('select[name="automation"]') 
-        
-         // Sélectionner l'option "Yes"
-        await DropdownsMenu.selectOption('no');
+    test('Static dropDown', async({page})=> {
+        const dropDownMenu = page.locator('select')
+        await dropDownMenu.click()
 
-        // assertion
-        const selectedOption = await DropdownsMenu.inputValue();
-        expect(selectedOption).toBe('no');
+        // page.getByRole('list') // Quand on a une list qui a un tag  UL
+        // page.getByRole('listitem') // Quand on a une liste qui a un tag LI
+
+        await dropDownMenu.selectOption('Undecided')
+        
+        //assertion
+
+        const selectedoption = await dropDownMenu.inputValue()
+        expect(selectedoption).toBe('undecided')
+
+
+         
      })
 })
