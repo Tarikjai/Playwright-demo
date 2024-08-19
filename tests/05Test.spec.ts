@@ -42,6 +42,15 @@ test.describe('Form',() =>{
             await box.check()
             expect(await box.isChecked()).toBeTruthy()
         }
-    
     })
+    test('Static Dropdowns', async({page})=> {
+        const DropdownsMenu =  page.locator('select[name="automation"]') 
+        
+         // Sélectionner l'option "Yes"
+        await DropdownsMenu.selectOption('no');
+
+        // assertion
+        const selectedOption = await DropdownsMenu.inputValue();
+        expect(selectedOption).toBe('no');
+     })
 })
