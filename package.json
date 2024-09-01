@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "05Test": "npx playwright test 05Test.spec.ts --project=chromium --headed",
+    "06Test": "npx playwright test 06Test.spec.ts --project=firefox --headed",
+    "test_ALL": "npm run 05Test && npm run 06Test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.45.2",
     "@types/node": "^20.14.11"
   }
