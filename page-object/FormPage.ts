@@ -7,6 +7,10 @@ export class FormPage {
     constructor(page : Page){
         this.page = page
     }
+        async navigate(){
+            await this.page.getByText('Form Fields').click()
+        }
+
 
         async inputValue(name: string, password: string){
             await this.page.getByRole('textbox', {name:"Name"}).fill(name)

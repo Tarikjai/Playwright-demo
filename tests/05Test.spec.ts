@@ -1,12 +1,14 @@
 import {test,expect} from '@playwright/test'
 
 test.beforeEach(async ({page})=>{
-    await page.goto('https://practice-automation.com/')
+    await page.goto('/')
 
 })
 
 
 test.describe('Form',() =>{
+    //test.describe.configure({retries: 3})
+    
     test.beforeEach(async ({page})=>{
         await page.getByText('Form Fields').click()
     } )
@@ -15,6 +17,11 @@ test.describe('Form',() =>{
         await usingNameInput.fill('Tarik')
         await usingNameInput.clear()
         await usingNameInput.pressSequentially('Tarik', {delay:400})
+        await page.getByRole('textbox', {name:"Password"}).fill('123456')
+        
+        await page.screenshot({path: 'screenshots/textBox.png'})
+        await page.getByRole('textbox', {name:"Name"}).screenshot({path:'screenshots/nameField.png'})
+        
         // Generic Assertion
         const inputValue = await usingNameInput.inputValue()
         expect(inputValue).toEqual('Tarik')
