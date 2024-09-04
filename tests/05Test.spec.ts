@@ -6,13 +6,11 @@ test.beforeEach(async ({page})=>{
 })
 
 
-test.describe('Form',() =>{
-    //test.describe.configure({retries: 3})
-    
+test.describe('Form  ',() =>{
     test.beforeEach(async ({page})=>{
         await page.getByText('Form Fields').click()
     } )
-    test('input field',async({page})=>{
+    test('input field  ',async({page})=>{
         const usingNameInput = page.getByRole('textbox', {name:"Name"})
         await usingNameInput.fill('Tarik')
         await usingNameInput.clear()

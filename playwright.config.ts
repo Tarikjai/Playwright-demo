@@ -5,7 +5,12 @@ import type { TesOptions } from './test-options';
 
 export default defineConfig<TesOptions>({
   timeout:40000,
-  reporter: 'html',
+  reporter: [
+      ['json', {outputFile: 'test-results/reportingJson.json'}],
+      ['junit', {outputFile: 'test-results/reportingJson.xml'}],
+      ['allure-playwright']
+          ] 
+  ,
   use: {
     baseURL: 'https://practice-automation.com/',
     herokuappURL :'https://the-internet.herokuapp.com/drag_and_drop',
@@ -47,6 +52,13 @@ export default defineConfig<TesOptions>({
             
           }
         }
+    },
+    {
+      name:'mobile',
+      testmatch : 'mobileTest.spec.ts',
+      use: {
+        ...devices['iPhone 13 Pro Max']
+      }
     }
   ],
 });

@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test'
 
 
-test('dialog Box', async ({page}) =>{
+test('dialog Box @smoke', async ({page}) =>{
      page.goto('https://practice-automation.com/popups/')
     
      

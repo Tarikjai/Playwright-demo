@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","768","CheckBox","chromium","Wed Sep 04 18:50:36 CEST 2024","passed","Wed Sep 04 18:50:37 CEST 2024","Form  ","tests\05Test.spec.ts","",""
+"","5831","input field","chromium","Wed Sep 04 18:50:30 CEST 2024","passed","Wed Sep 04 18:50:35 CEST 2024","Form  ","tests\05Test.spec.ts","",""
+"","596","Static dropDown","chromium","Wed Sep 04 18:50:37 CEST 2024","passed","Wed Sep 04 18:50:38 CEST 2024","Form  ","tests\05Test.spec.ts","",""
+"","663","radio buttons","chromium","Wed Sep 04 18:50:36 CEST 2024","passed","Wed Sep 04 18:50:36 CEST 2024","Form  ","tests\05Test.spec.ts","",""
